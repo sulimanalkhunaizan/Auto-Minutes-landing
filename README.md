@@ -1,36 +1,149 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Auto Minutes - Landing Page
 
-## Getting Started
+A professional, modern landing page for Auto Minutes, an AI-powered meeting assistant that automatically transcribes, summarizes, and tracks action items from meetings.
 
-First, run the development server:
+## 🚀 Tech Stack
+
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Type-safe code
+- **Tailwind CSS** - Utility-first styling
+- **Lucide React** - Professional icon library
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx          # Root layout with metadata
+│   ├── page.tsx             # Main landing page
+│   └── globals.css          # Global styles
+├── components/
+│   ├── ui/                  # Reusable UI components
+│   │   ├── Button.tsx
+│   │   ├── FeatureCard.tsx
+│   │   ├── UseCaseCard.tsx
+│   │   ├── PricingCard.tsx
+│   │   ├── FAQItem.tsx
+│   │   ├── MetricCard.tsx
+│   │   └── index.ts
+│   └── sections/            # Page sections
+│       ├── StickyHeader.tsx
+│       ├── HeroSection.tsx
+│       ├── ProblemSection.tsx
+│       ├── HowItWorksSection.tsx
+│       ├── FeaturesSection.tsx
+│       ├── UseCasesSection.tsx
+│       ├── SocialProofSection.tsx
+│       ├── DemoVideoSection.tsx
+│       ├── PricingSection.tsx
+│       ├── FAQSection.tsx
+│       ├── Footer.tsx
+│       └── index.ts
+└── lib/
+    └── constants.ts         # Data constants and configuration
+```
+
+## 🎨 Design Philosophy
+
+The landing page follows a story-driven approach:
+
+1. **Hero** - Strong value proposition
+2. **Problem** - Pain points identification
+3. **Solution** - How it works (3-step process)
+4. **Features** - Key capabilities
+5. **Use Cases** - Industry-specific benefits
+6. **Social Proof** - Trust building (logos, testimonials, metrics)
+7. **Demo** - Product visualization
+8. **Pricing** - Clear, transparent plans
+9. **FAQ** - Common questions
+10. **Footer** - Navigation and legal
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+### Linting
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎯 Key Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- ✅ **Fully Responsive** - Mobile-first design
+- ✅ **Professional Icons** - Lucide React integration
+- ✅ **Type-Safe** - Full TypeScript support
+- ✅ **Component-Based** - Modular and maintainable
+- ✅ **SEO Optimized** - Proper metadata and structure
+- ✅ **Modern UI** - Tailwind CSS with smooth animations
+- ✅ **Clean Code** - Well-organized with constants separation
 
-## Deploy on Vercel
+## 📝 Customization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Update Content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Edit `/src/lib/constants.ts` to update:
+- Features
+- Pricing plans
+- FAQs
+- Testimonials
+- Metrics
+- Company logos
+
+### Update Styling
+
+Modify Tailwind classes in components or extend the theme in `tailwind.config.js`.
+
+### Update Metadata
+
+Edit `/src/app/layout.tsx` to update:
+- Page title
+- Description
+- Keywords
+
+## 🚢 Deployment
+
+This project can be deployed to:
+- **Vercel** (recommended for Next.js)
+- **Netlify**
+- **AWS Amplify**
+- Any platform supporting Node.js
+
+### Deploy to Vercel
+
+```bash
+npm i -g vercel
+vercel
+```
+
+## 📄 License
+
+This project is proprietary and confidential.
+
+## 🤝 Contributing
+
+This is a closed-source project. For questions or support, contact the development team.
