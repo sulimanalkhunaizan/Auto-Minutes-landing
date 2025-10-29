@@ -7,8 +7,8 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
   // GitHub Pages configuration
-  basePath: process.env.NODE_ENV === 'production' ? '/auto-minutes-landing' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/auto-minutes-landing/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/Auto-Minutes-landing' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Auto-Minutes-landing/' : '',
 };
 
 export default nextConfig;
