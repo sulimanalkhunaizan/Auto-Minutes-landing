@@ -1,28 +1,114 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/Button';
-import { MessageSquare, Sparkles } from 'lucide-react';
+import { MessageSquare, Sparkles, ArrowRight, Play } from 'lucide-react';
+
+// Typewriter animation component
+function TypewriterText({ words, className = "" }: { words: string[], className?: string }) {
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentText, setCurrentText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isWaiting, setIsWaiting] = useState(false);
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    const currentWord = words[currentWordIndex];
+    
+    if (isWaiting) {
+      const timeout = setTimeout(() => {
+        setIsWaiting(false);
+        setIsDeleting(true);
+      }, 2500); // Wait 2.5 seconds before deleting
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting) {
+      if (currentText.length > 0) {
+        const timeout = setTimeout(() => {
+          setCurrentText(currentText.slice(0, -1));
+        }, 80); // Delete speed (faster)
+        return () => clearTimeout(timeout);
+      } else {
+        setIsDeleting(false);
+        setCurrentWordIndex((prev) => (prev + 1) % words.length);
+      }
+    } else {
+      if (currentText.length < currentWord.length) {
+        const timeout = setTimeout(() => {
+          setCurrentText(currentWord.slice(0, currentText.length + 1));
+        }, 120); // Type speed
+        return () => clearTimeout(timeout);
+      } else {
+        setIsWaiting(true);
+      }
+    }
+  }, [currentText, currentWordIndex, isDeleting, isWaiting, words]);
+
+  // Cursor blinking effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <span className={className}>
+      {currentText}
+      <span className={`inline-block w-0.5 h-12 bg-current ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>
+        |
+      </span>
+    </span>
+  );
+}
 
 export function HeroSection() {
+  const typewriterWords = [
+    "Action in Seconds",
+    "Smart Summaries", 
+    "Instant Insights",
+    "Clear Decisions"
+  ];
+
   return (
     <section className="bg-gradient-to-b from-gray-50 to-white pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Meeting Minutes on Auto-Pilot
+            {/* AI-Powered Meeting Intelligence Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full text-sm font-medium text-blue-800 mb-8">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+              </span>
+              AI-Powered Meeting Intelligence
+            </div>
+
+            {/* Main Heading */}
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+              <span className="text-gray-900">Turn Your Meetings into</span>{" "}
+              <TypewriterText 
+                words={typewriterWords}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              />
             </h1>
+
             <p className="text-xl text-gray-600 mb-8">
-              AI-powered transcription and summaries that save you 5+ hours per week. 
-              Never manually take notes again.
+              AI that summarizes, organizes, and delivers your meeting minutes instantly. 
+              Focus on execution, not documentation.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button variant="primary">
-                Start Free Trial
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <Button variant="primary" size="lg" className="group">
+                Try AutoMinutes Free
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button variant="secondary">
-                Watch Demo
+              <Button variant="secondary" size="lg" className="group">
+                <Play className="mr-2 h-5 w-5" />
+                See It in Action
               </Button>
             </div>
+
           </div>
           
           <div>

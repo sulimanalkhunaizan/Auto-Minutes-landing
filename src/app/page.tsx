@@ -3,10 +3,10 @@
 import { useState, useEffect } from 'react';
 import { StickyHeader } from '@/components/sections/StickyHeader';
 import { HeroSection } from '@/components/sections/HeroSection';
-import { ProblemSection } from '@/components/sections/ProblemSection';
 import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
 import { UseCasesSection } from '@/components/sections/UseCasesSection';
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { SocialProofSection } from '@/components/sections/SocialProofSection';
 import { DemoVideoSection } from '@/components/sections/DemoVideoSection';
 import { PricingSection } from '@/components/sections/PricingSection';
@@ -28,10 +28,10 @@ export default function AutoMinutesLanding() {
     <div className="min-h-screen bg-white">
       <StickyHeader isVisible={isSticky} />
       <HeroSection />
-      <ProblemSection />
       <HowItWorksSection />
       <FeaturesSection />
       <UseCasesSection />
+      <TestimonialsSection />
       <SocialProofSection />
       <DemoVideoSection />
       <PricingSection />

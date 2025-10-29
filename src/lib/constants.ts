@@ -124,26 +124,11 @@ export const faqs = [
   },
 ] as const;
 
-// Metrics data
-export const metrics = [
-  { value: '5M+', label: 'Meetings Processed' },
-  { value: '10h+', label: 'Time Saved Weekly' },
-  { value: '99%', label: 'Accuracy Rate' },
-  { value: '4.9/5', label: 'Customer Rating' },
-] as const;
-
-// Company logos
+// Company logos (legacy - now defined in SocialProofSection)
 export const companies = [
   'TechCorp',
   'StartupInc',
   'GlobalBiz',
   'InnovateLabs',
 ] as const;
-
-// Testimonial
-export const testimonial = {
-  quote: 'Auto Minutes saved our team 10+ hours per week on meeting documentation. It\'s like having an assistant in every meeting.',
-  author: 'Sarah Chen',
-  role: 'Product Manager, TechCorp',
-} as const;
 
